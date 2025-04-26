@@ -1,0 +1,22 @@
+{
+  "name": "frappe",
+  "version": "1.0.0",
+  "description": "simple discord bot with slash commands",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthur875/Frappe.git"
+  },
+  "author": "Ale",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arthur875/Frappe/issues"
+  },
+  "homepage": "https://github.com/arthur875/Frappe#readme",
+  "dependencies": {
+    "discord.js": "^14.19.1"
+  }
+}
