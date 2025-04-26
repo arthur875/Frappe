@@ -17,3 +17,17 @@ A simple Discord bot with slash commands.
     ```bash
     npm install discord.js
     ```
+
+4. **Configure your bot**
+    - Create a `.env` file in the root directory
+    - Add your Discord bot token and client ID:
+    ```
+    TOKEN=your_discord_bot_token
+    CLIENT_ID=your_client_id
+    ```
+
+## Usage
+
+### Starting the bot
+```bash
+node index.js
