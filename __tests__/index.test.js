@@ -1,24 +1,51 @@
 // Mock discord.js and capture the client instance
 let mockClient;
 jest.mock('discord.js', () => {
+  // Create a simple Collection class mock
+  class Collection {
+    constructor() {
+      this.items = new Map();
+    }
+    set(key, value) {
+      this.items.set(key, value);
+      return this;
+    }
+    get(key) {
+      return this.items.get(key);
+    }
+  }
+  
   mockClient = {
     once: jest.fn(),
+    on: jest.fn(),
     login: jest.fn().mockResolvedValue('token'),
     user: {
       tag: 'TestBot#1234'
-    }
+    },
+    commands: new Collection()
   };
   
   return {
     Client: jest.fn(() => mockClient),
+    Collection: jest.fn(() => new Collection()),
     Events: {
-      ClientReady: 'ready'
+      ClientReady: 'ready',
+      InteractionCreate: 'interactionCreate'
     },
     GatewayIntentBits: {
       Guilds: 1
     }
   };
 });
+
+// Mock fs and path to avoid file system operations
+jest.mock('node:fs', () => ({
+  readdirSync: jest.fn().mockReturnValue([])
+}));
+
+jest.mock('node:path', () => ({
+  join: jest.fn().mockReturnValue('')
+}));
 
 // Mock dotenv config to provide a test token
 jest.mock('dotenv', () => ({
@@ -28,8 +55,9 @@ jest.mock('dotenv', () => ({
   })
 }));
 
-// Mock console.log
+// Mock console.log and console.error
 console.log = jest.fn();
+console.error = jest.fn();
 
 describe('Discord Bot', () => {
   beforeEach(() => {
