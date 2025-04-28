@@ -15,17 +15,36 @@ A simple Discord bot with slash commands.
 
 3. **Install dependencies**
     ```bash
-    npm install discord.js
+    npm install
     ```
 
 4. **Configure your bot**
-    - Create a `.env` file in the root directory
+    - Create a `.env` file in the root directory with the following variables:
     ```
-    TOKEN=your_discord_bot_token
+    DISCORD_TOKEN=your_discord_bot_token
+    CLIENT_ID=your_discord_application_client_id
+    GUILD_ID=your_discord_server_id
     ```
 
+## Features
+
+Frappe provides several slash commands:
+
+- `/ping` - Simple ping command that replies with "Pong!"
+- `/server` - Provides information about the current server, including name and member count
+- `/user` - Provides information about the user who ran the command, including username and join date
+
 ## Usage
+
+### Deploying Commands
+
+Before using the bot, you need to deploy the slash commands to your Discord server:
+
+```bash
+node deploy_commands.js
+```
 
 ### Starting the bot
 ```bash
 node index.js
+```
