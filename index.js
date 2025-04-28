@@ -17,7 +17,7 @@ client.commands = new Collection();
 
 const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);
-
+// for each subfolder in the commands folder you take the path of the folder and the js files
 for (const folder of commandFolders) {
 	const commandsPath = path.join(foldersPath, folder);
 	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
@@ -55,6 +55,8 @@ client.on(Events.InteractionCreate, async interaction => {
 		}
 	}
 });
+
+
 
 // When client is ready, run this code (only once).
 // we set the event listener before loggin in the user in order to be sure to catch it.
