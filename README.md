@@ -17,6 +17,11 @@ A simple Discord bot with slash commands.
     ```bash
     npm install
     ```
+    
+    This will install all required dependencies including:
+    - discord.js
+    - dotenv
+    - jest (for development/testing)
 
 4. **Configure your bot**
     - Create a `.env` file in the root directory with the following variables:
